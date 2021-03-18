@@ -15,14 +15,14 @@ jobs:
     - name: Checkout CollaborationNode
       uses: actions/checkout@v2
       with:
-        repository: OpenCollaborationPlatform/Node
-        path: Node
+        repository: OpenCollaborationPlatform/OCP
+        path: OCP
     - name: Install Golang
       uses: actions/setup-go@v2
     - name: Build Node
       run: |
         go install ./...
-      working-directory: ./Node
+      working-directory: ./OCP
     - name: Checkout python code
       uses: actions/checkout@v2
     - name: Set up Python
