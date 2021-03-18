@@ -25,6 +25,8 @@ jobs:
       working-directory: ./OCP
     - name: Checkout python code
       uses: actions/checkout@v2
+      with:
+        path: PythonOCP
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
@@ -40,3 +42,4 @@ jobs:
       run: |
         python setup.py sdist bdist_wheel
         twine upload dist/*
+      working-directory: ./PythonOCP
