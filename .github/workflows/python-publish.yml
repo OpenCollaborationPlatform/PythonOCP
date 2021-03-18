@@ -21,7 +21,7 @@ jobs:
       uses: actions/setup-go@v2
     - name: Build Node
       run: |
-        go install ./...
+        go build ./...
       working-directory: ./OCP
     - name: Checkout python code
       uses: actions/checkout@v2
