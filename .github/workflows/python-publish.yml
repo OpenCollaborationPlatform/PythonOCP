@@ -14,15 +14,17 @@ jobs:
 
     steps:
     - name: Checkout CollaborationNode
-    - uses: actions/checkout@v2
+      uses: actions/checkout@v2
       with:
         repository: ickby/CollaborationNode
         path: CollaborationNode
-    - name: Compile golang
-    - uses: actions/setup-go@v2
-    - run: |
+    - name: Install Golang
+      uses: actions/setup-go@v2
+    - name: Build Node
+      run: |
         go install CollaborationNode/CollaborationNode.go
-    - uses: actions/checkout@v2
+    - name: Checkout python code
+      uses: actions/checkout@v2
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
