@@ -9,17 +9,18 @@ MAINTAINER_EMAIL = "stefantroeger@gmx.net"
 URL = ""
 LICENSE = "LGPL2.1+"
 DOWNLOAD_URL = ""
-VERSION = '0.1'
+VERSION = '0.1.1'
 
 
 # find the installed collaboration executable, independent of extension
-path = os.path.join(os.environ["GOPATH"], "bin")
+pyfolder = os.path.dirname(__file__)
+ocpfolder = os.path.join(os.path.dirname(pyfolder), "OCP")
 regex = re.compile('OCP*')
 filepath = ""
-for root, dirs, files in os.walk(path):
+for root, dirs, files in os.walk(ocpfolder):
   for file in files:
     if regex.match(file):
-       filepath = os.path.join(path, file)
+       filepath = os.path.join(ocpfolder, file)
        break
 
 # enforce os specific package
