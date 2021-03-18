@@ -10,24 +10,19 @@ on:
 
 jobs:
   deploy:
-
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout CollaborationNode
       uses: actions/checkout@v2
       with:
         repository: OpenCollaborationPlatform/Node
-        path: Node
     - name: Install Golang
       uses: actions/setup-go@v2
     - name: Build Node
       run: |
-        go install Node
+        go install ./...
     - name: Checkout python code
       uses: actions/checkout@v2
-      with:
-        path: PythonOCP
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
