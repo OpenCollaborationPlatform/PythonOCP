@@ -1,3 +1,4 @@
+import os, re
 from setuptools import setup
 from setuptools.dist import Distribution
 
@@ -11,7 +12,17 @@ DOWNLOAD_URL = ""
 VERSION = '0.1'
 
 
+# find the installed collaboration executable, independent of extension
+path = os.path.join(os.environ["GOPATH"], "bin")
+regex = re.compile('OCP*')
+filepath = ""
+for root, dirs, files in os.walk(path):
+  for file in files:
+    if regex.match(file):
+       filepath = os.path.join(path, file)
+       break
 
+# enforce os specific package
 class BinaryDistribution(Distribution):
     """Distribution which always forces a binary package with platform name"""
     def has_ext_modules(self):
@@ -25,8 +36,6 @@ setup(name=DISTNAME,
       license=LICENSE,
       download_url=DOWNLOAD_URL,
       version=VERSION,
-      packages=["packagename"],
-
-      # Include pre-compiled extension
-      package_data={"packagename": ["_precompiled_extension.pyd"]},
+      packages=["ocp"],
+      data_files =[("ocp", [filepath])],
       distclass=BinaryDistribution)
