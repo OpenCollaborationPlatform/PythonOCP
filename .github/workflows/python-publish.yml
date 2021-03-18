@@ -23,7 +23,7 @@ jobs:
       uses: actions/setup-go@v2
     - name: Build Node
       run: |
-        go install
+        go install ${GITHUB_WORKSPACE}/Node
     - name: Checkout python code
       uses: actions/checkout@v2
     - name: Set up Python
