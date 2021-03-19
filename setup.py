@@ -1,22 +1,29 @@
 from setuptools import setup
-from setuptools.dist import Distribution
 
 DISTNAME = "ocp"
-DESCRIPTION = "Open Collaboration Platform"
-MAINTAINER = "Stefan Troeger"
-MAINTAINER_EMAIL = "stefantroeger@gmx.net"
+DESCRIPTION = "Open Collaboration Platform meta package"
+AUTHOR = "Stefan Tröger"
+AUTHOR_EMAIL = "stefantroeger@gmx.net"
 URL = "https://github.com/OpenCollaborationPlatform"
 LICENSE = "LGPL2.1+"
 DOWNLOAD_URL = "https://github.com/OpenCollaborationPlatform"
-VERSION = '0.1.2'
+VERSION = '0.1.3'
 
+# dependencies
+with open('requirements.txt') as f:
+    required = f.read().splitlines()
+
+# setup
 setup(name=DISTNAME,
       description=DESCRIPTION,
-      maintainer=MAINTAINER,
-      maintainer_email=MAINTAINER_EMAIL,
+      maintainer=AUTHOR,
+      maintainer_email=AUTHOR_EMAIL,
+      author=AUTHOR,
+      author_email= AUTHOR_EMAIL,
       url=URL,
       license=LICENSE,
       download_url=DOWNLOAD_URL,
       version=VERSION,
-      packages=['ocp'])
+      platforms='any',
+      install_requires=required)
 

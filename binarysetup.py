@@ -8,17 +8,15 @@
 
 import os, re
 from setuptools import setup
-from setuptools.dist import Distribution
+from shutil import copy2
 
-DISTNAME = "ocp"
 DESCRIPTION = "Open Collaboration Platform binary package"
 MAINTAINER = "Stefan Troeger"
 MAINTAINER_EMAIL = "stefantroeger@gmx.net"
 URL = "https://github.com/OpenCollaborationPlatform"
 LICENSE = "LGPL2.1+"
 DOWNLOAD_URL = "https://github.com/OpenCollaborationPlatform"
-VERSION = '0.1.2'
-
+VERSION = '0.1.3'
 
 # find the installed collaboration executable, independent of extension
 pyfolder = os.path.dirname(__file__)
@@ -31,11 +29,15 @@ for root, dirs, files in os.walk(ocpfolder):
        filepath = os.path.join(ocpfolder, file)
        break
    
-#get the full name of the compiled binary and use as project name
+#copy the file into our folder
+copy2(filepath, "./ocp")
+   
+# get the full name of the compiled binary and use as project name
 base = os.path.basename(filepath)
 name = os.path.splitext(base)[0]
 DISTNAME = name
 
+# setup
 setup(name=DISTNAME,
       description=DESCRIPTION,
       maintainer=MAINTAINER,
@@ -43,5 +45,7 @@ setup(name=DISTNAME,
       url=URL,
       license=LICENSE,
       download_url=DOWNLOAD_URL,
+      platforms=[name.split("_")[1]],
       version=VERSION,
-      data_files =[("ocp", [filepath])])
+      packages= ['ocp'],
+      package_data = {'': [base]})
