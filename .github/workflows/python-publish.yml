@@ -35,6 +35,9 @@ jobs:
     - name: Install Golang
       uses: actions/setup-go@v2
     - name: Build Node
+      env:
+        GOOS: ${{matrix.goos}}
+        GOARCH: ${{matrix.goarch}}
       run: |
         go build -o ocp_${{matrix.goos}}_${{matrix.goarch}}
       working-directory: ./OCP

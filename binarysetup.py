@@ -16,7 +16,7 @@ MAINTAINER_EMAIL = "stefantroeger@gmx.net"
 URL = "https://github.com/OpenCollaborationPlatform"
 LICENSE = "LGPL2.1+"
 DOWNLOAD_URL = "https://github.com/OpenCollaborationPlatform"
-VERSION = '0.1.4'
+VERSION = '0.1.5'
 
 # find the installed collaboration executable, independent of extension
 pyfolder = os.path.dirname(__file__)
