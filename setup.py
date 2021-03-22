@@ -3,14 +3,14 @@ from version import __version__
 
 
 # dependencies. We specify the binary package version, to force an upgrade of those when this meta package is upgraded
-required = [f"ocp-linux-386 >= {VERSION}; platform_system=='Linux' and platform_machine=='i386'",
-            f"ocp-linux-amd64 >= {VERSION}; platform_system=='Linux' and platform_machine=='x86_64'",
-            f"ocp-linux-arm >= {VERSION}; platform_system=='Linux' and platform_machine=='arm'",
-            f"ocp-linux-arm64 >= {VERSION}; platform_system=='Linux' and platform_machine=='aarch64'",
-            f"ocp-windows-386 >= {VERSION}; platform_system=='Windows' and platform_machine=='386'",
-            f"ocp-windows-amd64 >= {VERSION}; platform_system=='Windows' and platform_machine=='AMD64'",
-            f"ocp-darwin-arm64 >= {VERSION}; platform_system=='Darwin' and platform_machine=='aarch64'",
-            f"ocp-darwin-amd64 >= {VERSION}; platform_system=='Darwin' and platform_machine=='x86_64'"]
+required = [f"ocp-linux-386 >= {__version__}; platform_system=='Linux' and platform_machine=='i386'",
+            f"ocp-linux-amd64 >= {__version__}; platform_system=='Linux' and platform_machine=='x86_64'",
+            f"ocp-linux-arm >= {__version__}; platform_system=='Linux' and platform_machine=='arm'",
+            f"ocp-linux-arm64 >= {__version__}; platform_system=='Linux' and platform_machine=='aarch64'",
+            f"ocp-windows-386 >= {__version__}; platform_system=='Windows' and platform_machine=='386'",
+            f"ocp-windows-amd64 >= {__version__}; platform_system=='Windows' and platform_machine=='AMD64'",
+            f"ocp-darwin-arm64 >= {__version__}; platform_system=='Darwin' and platform_machine=='aarch64'",
+            f"ocp-darwin-amd64 >= {__version__}; platform_system=='Darwin' and platform_machine=='x86_64'"]
 
 # setup
 setup(name="ocp",
