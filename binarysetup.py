@@ -53,4 +53,4 @@ setup(name=name,
       platforms=[name.split("_")[1]],
       version=__version__,
       packages= ['ocp'],
-      package_data = {'': [base]})
+      package_data = {'': [name+extension]})
