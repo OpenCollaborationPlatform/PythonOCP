@@ -48,7 +48,6 @@ jobs:
       env:
         TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
         TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-      env:
         GOOS: ${{matrix.goos}}
         GOARCH: ${{matrix.goarch}}
       run: |
