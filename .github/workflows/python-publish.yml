@@ -30,7 +30,7 @@ jobs:
         GOOS: ${{matrix.goos}}
         GOARCH: ${{matrix.goarch}}
       run: |
-        go build -o ocp_${{matrix.goos}}_${{matrix.goarch}}
+        go build
       working-directory: ./OCP
     - name: Checkout python code
       uses: actions/checkout@v2
@@ -48,6 +48,9 @@ jobs:
       env:
         TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
         TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+      env:
+        GOOS: ${{matrix.goos}}
+        GOARCH: ${{matrix.goarch}}
       run: |
         python binarysetup.py sdist bdist_wheel
         twine upload dist/*.whl

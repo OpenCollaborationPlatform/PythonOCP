@@ -1,13 +1,6 @@
 from setuptools import setup
+from version import __version__
 
-DISTNAME = "ocp"
-DESCRIPTION = "Open Collaboration Platform meta package"
-AUTHOR = "Stefan Tröger"
-AUTHOR_EMAIL = "stefantroeger@gmx.net"
-URL = "https://github.com/OpenCollaborationPlatform"
-LICENSE = "LGPL2.1+"
-DOWNLOAD_URL = "https://github.com/OpenCollaborationPlatform"
-VERSION = '0.1.5'
 
 # dependencies. We specify the binary package version, to force an upgrade of those when this meta package is upgraded
 required = [f"ocp-linux-386 >= {VERSION}; platform_system=='Linux' and platform_machine=='i386'",
@@ -20,16 +13,16 @@ required = [f"ocp-linux-386 >= {VERSION}; platform_system=='Linux' and platform_
             f"ocp-darwin-amd64 >= {VERSION}; platform_system=='Darwin' and platform_machine=='x86_64'"]
 
 # setup
-setup(name=DISTNAME,
-      description=DESCRIPTION,
-      maintainer=AUTHOR,
-      maintainer_email=AUTHOR_EMAIL,
-      author=AUTHOR,
-      author_email= AUTHOR_EMAIL,
-      url=URL,
-      license=LICENSE,
-      download_url=DOWNLOAD_URL,
-      version=VERSION,
+setup(name="ocp",
+      description="Open Collaboration Platform meta package",
+      maintainer="Stefan Tröger",
+      maintainer_email="stefantroeger@gmx.net",
+      author="Stefan Tröger",
+      author_email= "stefantroeger@gmx.net",
+      url="https://github.com/OpenCollaborationPlatform",
+      license="LGPL2.1+",
+      download_url="https://github.com/OpenCollaborationPlatform/PythonOCP",
+      version=__version__,
       platforms='any',
       install_requires=required)
 
