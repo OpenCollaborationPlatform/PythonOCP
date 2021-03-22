@@ -1,13 +1,17 @@
 # PythonOCP
 Python package providing the OCP node binary. 
 
-    ``pip install ocp``
+```
+pip install ocp
+```
 
 ## Howto use the package
 The package currently only provides the path to the executable file
    
-   ``import ocp 
-     ocp.node_path``
+``` python
+import ocp 
+ocp.node_path
+```
 
 The user can use this path than together with syscalls to initialize and startup the OCP node. For this use the default ocp node cli.
 
